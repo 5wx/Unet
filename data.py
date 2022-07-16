@@ -24,7 +24,7 @@ class MyDataset(Dataset):
         segment_path = os.path.join(self.path, 'SegmentationClass', segment_name)
         image_path = os.path.join(self.path, 'JPEGImages', segment_name)
         segment_image = keep_image_size_open(segment_path)
-        image = keep_image_size_open_rgb(image_path)
+        image = keep_image_size_open(image_path)
         return transform(image), torch.Tensor(np.array(segment_image))
 
 
